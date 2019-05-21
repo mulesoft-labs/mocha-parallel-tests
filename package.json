@@ -1,6 +1,6 @@
 {
-  "name": "mocha-parallel-tests",
-  "version": "2.1.0",
+  "name": "@mulesoft/mocha-parallel-tests",
+  "version": "0.0.2-0",
   "homepage": "https://github.com/mocha-parallel/mocha-parallel-tests",
   "description": "Run mocha tests in parallel",
   "main": "./dist/main/mocha.js",
@@ -53,7 +53,10 @@
     "test:mocha-3": "npm install mocha@3 --no-save && npm test",
     "test:mocha-4": "npm install mocha@4 --no-save && npm test",
     "test:mocha-5": "npm install mocha@5 --no-save && npm test",
-    "test:mocha-6": "npm install mocha@6 --no-save && npm test"
+    "test:mocha-6": "npm install mocha@6 --no-save && npm test",
+    "postversion": "git add package.json && git commit -m \"bump version\" && git tag ${npm_package_name}V${npm_package_version} && git push origin HEAD && git push origin $(git describe --tags) && npm publish",
+    "patch-version": "npm --no-git-tag-version version patch",
+    "pre-patch-version": "npm --no-git-tag-version version prepatch"
   },
   "license": "MIT",
   "engines": {
